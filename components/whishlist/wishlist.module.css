@@ -1,0 +1,99 @@
+.wishListMark {
+  position: absolute;
+  opacity: 0;
+  top: -10000px;
+}
+.wishList {
+  position: fixed;
+  top: 0px;
+  right: -1500px;
+  z-index: -1000;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  border-left: 2px solid black;
+  background-color: white;
+  transition: all 0.3s ease-in-out;
+}
+.nav {
+  padding: 5px;
+  width: 100%;
+  height: 100px;
+  color: white;
+  background-color: black;
+}
+.nav div {
+  display: flex;
+  justify-content: space-around;
+}
+.wishListMark:checked + .wishList {
+  right: 0;
+  z-index: 1000;
+  opacity: 1;
+}
+.login {
+  font-size: 0.8em;
+  width: 100%;
+  padding: 0;
+  padding: 10px 0;
+}
+.options {
+  padding: 10px;
+}
+
+.closeIcon {
+  width: 20px;
+  height: 20px;
+  left: 0;
+  vertical-align: middle;
+  padding: 0;
+  fill: white;
+}
+.icon {
+  margin-left: 25px;
+  width: 30px;
+  height: 30px;
+}
+.likedProducts {
+  /* border: 4px solid red; */
+  overflow-y: auto;
+  max-height: 600px;
+}
+.loadingContainer {
+  display: flex;
+  padding: 100px;
+  justify-content: center;
+  border: 1px solid red;
+  height: 100%;
+}
+.loading {
+  width: 50px;
+  height: 50px;
+  margin: auto;
+  /* transform: rotate(45deg); */
+  animation-name: loading;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}
+.product {
+  border-bottom: 3px solid #eee;
+  padding: 15px 50px;
+  /* justify-content: space-around; */
+  display: flex;
+}
+
+.productDetails {
+  width: 100%;
+  /* border: 1px solid salmon; */
+  text-align: center;
+  /* margin: auto; */
+}
+
+@keyframes loading {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -1,0 +1,137 @@
+.alertEnter {
+  left: -1500px !important;
+}
+.alertEnterActive {
+  left: 0 !important;
+  transition: left 500ms;
+}
+.alertEnterDone {
+  left: 0 !important;
+}
+.alertExit {
+  left: 0 !important;
+}
+.alertExitActive {
+  left: -1500px !important;
+  transition: left 500ms;
+}
+.logSignin {
+  /* float: right; */
+  display: none;
+}
+/* //////////////////////////////////////// */
+
+.container2 {
+  display: flex;
+  padding: 10px 0;
+}
+.main {
+  top: 0;
+  display: flex;
+  /* position: fixed; */
+  justify-content: flex-start;
+  align-items: center;
+  height: 60px;
+}
+.brand {
+  font-size: 45px;
+  width: 250px;
+  font-weight: bolder;
+}
+/* => */
+.hope {
+  display: none;
+}
+.leftArrow {
+  display: none;
+}
+.mobileNav {
+  display: none;
+  height: 60px;
+  z-index: 1;
+  width: 100%;
+  position: fixed;
+  background-color: white;
+}
+.container {
+  /* display: none; */
+  position: sticky;
+  top: 0;
+  z-index: 1111;
+  width: 100%;
+  background-color: white;
+}
+.adjust {
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .adjust {
+    max-width: 960px;
+    width: 960px;
+  }
+}
+@media screen and (min-width: 1216px) {
+  .adjust {
+    max-width: 1152px;
+    width: 1152px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .group {
+    position: fixed;
+    top: 0px;
+    bottom: 0;
+    left: -1500px;
+    width: 100%;
+    height: 120%;
+    background-color: white;
+  }
+  .group2 {
+    display: flex;
+    margin: 10px 0 20px 0;
+  }
+  .mobileNav {
+    display: block;
+  }
+  .brand {
+    font-size: 35px;
+    width: 50px;
+    font-weight: bolder;
+  }
+  .hope {
+    display: block;
+    height: 25px;
+    width: 25px;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  /* => */
+
+  .leftArrow {
+    height: 50px;
+    width: 50px;
+    margin: 0 10px;
+    cursor: pointer;
+    display: block;
+  }
+  .logSignin {
+    margin-left: auto;
+    margin-right: 10px;
+    display: flex;
+    align-items: center;
+  }
+  .logSignin a {
+    padding: 10px;
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+  }
+
+  .logSignin a:first-of-type {
+    color: black;
+    background-color: white;
+    border: 1px solid black;
+  }
+}

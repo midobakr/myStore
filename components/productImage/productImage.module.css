@@ -1,0 +1,19 @@
+.sambles {
+  position: absolute;
+  top: 50px;
+  right: 0;
+  width: 25%;
+  /* overflow: hidden; */
+  /* border: 1px solid #eee; */
+  display: none;
+}
+.sambles div {
+  border: 2px solid white;
+}
+.sambles div:first-child {
+  border-bottom: 0;
+  /* display: none; */
+}
+.container:hover .sambles {
+  display: block;
+}

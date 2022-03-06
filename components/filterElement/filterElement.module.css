@@ -1,0 +1,49 @@
+.checkbox {
+  visibility: hidden;
+  position: absolute;
+}
+.checkbox:checked + label + .options {
+  opacity: 1;
+  z-index: 111;
+}
+.checkbox:checked + label .group {
+  border-top: 1px solid black;
+  transform: translateY(10px);
+}
+.options {
+  position: absolute;
+  top: 40px;
+  left: 0;
+  border: 1px solid #eee;
+  min-width: 150px;
+  z-index: -111;
+  opacity: 0;
+  background-color: white;
+  min-height: 110px;
+  transition: all 0.2s linear;
+}
+
+.group {
+  display: flex;
+  justify-content: space-between;
+  transition: all 0.2s linear;
+}
+.list_item {
+  border-top: 1px solid transparent;
+  border-bottom: 1px solid #eee;
+  padding: 15px;
+  width: 145px;
+  position: relative;
+}
+.list_item span {
+  line-height: 20px;
+}
+.icon {
+  width: 20px;
+  height: 20px;
+}
+@media screen and (max-width: 750px) {
+  .list_item {
+    width: 50%;
+  }
+}

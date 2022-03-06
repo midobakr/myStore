@@ -1,0 +1,15 @@
+.container {
+  font: 13px sans-serif;
+  font-weight: bolder;
+  margin: 10px 0;
+}
+.list {
+  margin: 0;
+  padding: 0;
+  height: 40px;
+  padding-left: 30px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}

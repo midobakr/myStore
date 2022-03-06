@@ -1,0 +1,27 @@
+.controllers {
+  margin-left: auto;
+  display: flex;
+  justify-content: space-around;
+}
+
+.userIcon {
+  width: 30px;
+  height: 30px;
+}
+.icon {
+  margin-left: 25px;
+  width: 30px;
+  height: 30px;
+  /* fill: red; */
+  /* background-color: aqua; */
+  stroke-width: 1px;
+  /* color: blue; */
+}
+
+/* => */
+
+@media screen and (max-width: 1000px) {
+  .userIcon {
+    display: none;
+  }
+}

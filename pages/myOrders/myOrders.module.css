@@ -1,0 +1,61 @@
+.container {
+  padding: 20px;
+  height: 100vh;
+  font-family: fantasy;
+}
+.container h1 {
+  font-family: "Times New Roman", Times, serif;
+  padding: 10px;
+  width: 25%;
+  border-bottom: 2px solid rgb(95, 88, 88);
+  margin-bottom: 20px;
+}
+.ordersContainer {
+  padding: 15px;
+}
+.order {
+  padding: 5px 10px;
+  margin: auto;
+  width: 70%;
+  margin-bottom: 20px;
+  /* max-height: 300px; */
+  /* overflow: auto; */
+  border: 1px solid #aaa;
+  transition: 1s all ease-in-out;
+}
+.orderDetails {
+  display: flex;
+  justify-content: space-between;
+  margin: 5px;
+  margin-bottom: 10px;
+}
+.orderId,
+.orderDate {
+  font-size: 25px;
+}
+.orderInfo {
+  font-size: 18px;
+  margin: 10px 25px;
+}
+.label {
+  color: #333;
+}
+.info {
+  color: #222;
+}
+.expand,
+.collapse {
+  text-align: right;
+  font-size: 25px;
+  /* color: black; */
+}
+.test {
+  cursor: pointer;
+  color: green;
+  /* background-color: #333; */
+}
+.orderStatus {
+  text-align: center;
+  font-size: 25px;
+  margin: 20px 0;
+}
