@@ -14,20 +14,16 @@ export default function Layout({ children }) {
   useEffect(() => {
     let SID = "";
     onAuthStateChanged(auth, (user) => {
-      console.log("nos sa7");
       setUser(user?.displayName);
       localStorage.setItem("token", user?.accessToken);
 
       if (user) {
-        console.log("sa7 el sa7");
         SID = setInterval(() => {
           getIdToken(auth.currentUser).then((token) => {
             localStorage.setItem("token", token);
           });
         }, 60 * 1000);
-        console.log("sid=", SID);
       } else {
-        console.log("clear sid=", SID);
         clearInterval(SID);
       }
     });

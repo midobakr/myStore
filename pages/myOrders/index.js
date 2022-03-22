@@ -22,7 +22,6 @@ export default function MyOrders() {
     });
     res = await res.json();
     setOrders(res);
-    console.log("res=", res);
   };
   return (
     <div className={classes.container}>

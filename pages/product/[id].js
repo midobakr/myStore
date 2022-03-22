@@ -26,16 +26,11 @@ export default function Product({ product }) {
     const sliderWidth = sliderRef.current.offsetWidth;
     const sliderScrollWidth = sliderRef.current.scrollWidth;
     const sliderScrollRight = sliderRef.current.scrollLeft + sliderWidth;
-    // if(sliderScrollLeft)
-    // console.log("scrollwidth=", sliderScrollWidth);
-    // console.log("scrollLeft=", sliderScrollRight);
-    console.log(active, ">" + images.length);
+
     if (active >= images.length) {
       setPointer(0);
       setActive(1);
-      console.log("hrg3 tany aho");
     } else {
-      console.log("step by step");
       setActive((i) => i + 1);
       setPointer((i) => i + 400);
     }
@@ -47,14 +42,11 @@ export default function Product({ product }) {
 
       setPointer(sliderScrollWidth - sliderWidth);
       setActive(images.length);
-      console.log("hrg3 tany aho");
     } else {
-      console.log("step by step");
       setActive((i) => i - 1);
       setPointer((i) => i - 400);
     }
   };
-  console.log(active);
   return (
     <div className={classes.container}>
       <h1 className={classes.name}>{product.name}</h1>
@@ -80,13 +72,7 @@ export default function Product({ product }) {
           <div className={classes.imageContainer} ref={sliderRef}>
             {images.map((img, i) => (
               <div key={i} className={classes.Image}>
-                <Image
-                  src={img}
-                  alt="Vercel Logo"
-                  width={400}
-                  height={550}
-                  // layout="fixed"
-                />
+                <Image src={img} alt="Vercel Logo" width={400} height={550} />
               </div>
             ))}
           </div>
@@ -100,12 +86,7 @@ export default function Product({ product }) {
 }
 
 export async function getServerSideProps(context) {
-  // return {
-  //   notFound: true,
-  // };
-
   const productId = context.query.id;
-  console.log("query==", productId);
   let product = await db.collection("products").doc(productId).get();
   if (product.exists) {
     product = await product.data();

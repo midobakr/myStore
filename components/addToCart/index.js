@@ -11,9 +11,6 @@ export default function AddToCart({ product }) {
   const colorRef = useRef();
 
   const DOaddToCart = async (id, size, color) => {
-    console.log(id);
-    console.log(size);
-    console.log(color);
     let res = await fetch("/api/cartList/add_remove", {
       method: "POST",
       headers: {
@@ -33,7 +30,6 @@ export default function AddToCart({ product }) {
     let sizeValue = sizeRef.current?.value;
     let colorValue = colorRef.current.value;
     if (sizeValue && colorValue) {
-      console.log("done");
       DOaddToCart(product.id, sizeValue, colorValue);
       setAddToCart(false);
     }
@@ -85,7 +81,6 @@ export default function AddToCart({ product }) {
       <span
         onClick={() => {
           if (!product.availableSizes && product.colors.length == 1) {
-            console.log("aywa b2a");
             DOaddToCart(product.id, "", product.colors[0]);
           } else {
             setAddToCart(true);

@@ -107,7 +107,6 @@ function SignUp(props) {
         );
         await updateProfile(result.user, { displayName: state.username });
 
-        console.log(result);
         if (result.user) {
           localStorage.setItem("token", result.user.accessToken);
 
@@ -142,7 +141,6 @@ function SignUp(props) {
             });
         }
       } catch (e) {
-        console.log("ee", e);
         if (e.message.match("email")) {
           setErrors({ email: "this email is already in use" });
         } else if (e.message.match("password")) {

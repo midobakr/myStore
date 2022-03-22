@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import SuccefullOrder from "../../components/succefullOrder";
 import Button from "../../components/Button/button";
 import Link from "next/link";
@@ -79,7 +79,6 @@ export default function CheckOut() {
       return id + 1;
     });
     if (activeSection === 3 && shippingAddress.phone && payment) {
-      console.log("yeaaaaah");
       submitOrder();
     }
   };
@@ -101,7 +100,6 @@ export default function CheckOut() {
       setError("please sign in first");
     }
   };
-  console.log(payment);
   return (
     <div className={classes.mainContainer}>
       {activeSection === 4 ? (
@@ -125,18 +123,3 @@ export default function CheckOut() {
     </div>
   );
 }
-
-// export async function getServerSideProps(context) {
-//   const q = query(
-//     collection(database, "products")
-//     // where("id", "in", [" ygRNFfAjmhJCLLmP99lu"])
-//   );
-
-//   const querySnapshot = await getDocs(q);
-//   let products = [];
-//   querySnapshot.forEach((doc) => {
-//     products.push(doc.data());
-//   });
-
-//   return { props: { products: products } };
-// }

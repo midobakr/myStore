@@ -3,4 +3,7 @@ module.exports = {
   images: {
     domains: ["assets.brantu.com", "localhost"],
   },
+  compiler: {
+    removeConsole: true,
+  },
 };

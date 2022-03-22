@@ -9,7 +9,6 @@ export default function getLikdProductsFromCookies(req, res) {
     whishList = JSON.parse(whishList);
     return whishList;
   }
-  console.log("whis", whishList[0]);
 
   return [];
 }

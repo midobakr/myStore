@@ -5,7 +5,6 @@ export default async function handler(req, res) {
   const password = req.body.password;
   const username = req.body.username;
   const token = req.headers.authorization;
-  // console.log(token, "req.body", req.body);
   if (token) {
     const user = await auth.verifyIdToken(token);
     try {
@@ -14,7 +13,6 @@ export default async function handler(req, res) {
           name: username,
           email: email,
         });
-        console.log("user=>", savedUser);
       }
       res.status(200).json({ ok: true });
     } catch (e) {

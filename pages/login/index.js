@@ -65,13 +65,11 @@ function Login() {
           state.password
         );
         const token = result.user.accessToken;
-        console.log(token);
         localStorage.setItem("token", token);
         if (token) {
           router.push("/myOrders");
         }
       } catch (error) {
-        console.log("error \n", error);
         if (error.message.match("user")) {
           setErrors({ email: "this email is not registered" });
         } else if (error.message.match("password")) {

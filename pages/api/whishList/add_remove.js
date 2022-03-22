@@ -22,9 +22,7 @@ async function handler(req, res) {
   } else {
     whishList.push(productId);
   }
-  console.log(req.userId, "done");
   if (req.userId) {
-    console.log(whishList);
     await db.collection("whishList").doc(req.userId).set({ whishList });
   } else {
     const cookies = new Cookies(req, res, { keys });

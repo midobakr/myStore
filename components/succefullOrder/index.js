@@ -8,7 +8,6 @@ export default function SuccefullOrder() {
   useEffect(() => {
     setTimeout(() => {
       router.push("/myOrders");
-      console.log("done");
     }, 5000);
   }, [router]);
   return (

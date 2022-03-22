@@ -18,7 +18,6 @@ async function handler(req, res) {
     date: +new Date(),
     status: "processing",
   });
-  console.log(result);
   await db.collection("carts").doc(req.userId).set({
     id: req.userId,
     cart: [],

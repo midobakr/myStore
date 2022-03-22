@@ -45,7 +45,6 @@ export default function Gallery({ category, search }) {
     let res = await fetch(link);
     res = await res.json();
     setProducts(res.products);
-    console.log("yeah all is working \n", res);
   }, [category, search]);
   const getLikedProducts = useCallback(() => {
     fetch("/api/whishList/getLikedproducts", {
@@ -69,7 +68,6 @@ export default function Gallery({ category, search }) {
       await getLikedProducts();
       setLoading(false);
     })();
-    console.log("it only needs to run one time");
   }, [getLikedProducts, getProducts]);
   let content = "";
   if (loading) {
@@ -96,7 +94,7 @@ export default function Gallery({ category, search }) {
           <Product
             key={product.id}
             product={product}
-            isLiked={likedProducts.includes(`${product.id}`)}
+            isLiked={likedProducts?.includes(`${product.id}`)}
             addToWhishList={addToWhishList}
             addToCart={addToCart}
           />

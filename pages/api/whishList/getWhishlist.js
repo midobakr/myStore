@@ -19,10 +19,6 @@ async function handler(req, res) {
     });
   }
 
-  console.log("====================================");
-  console.log(req.userId);
-  console.log(whishList);
-  console.log("------------------------------------");
   res.status(200).json(products);
 }
 export default authMiddleware(handler);

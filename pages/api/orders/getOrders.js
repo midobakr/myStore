@@ -11,7 +11,6 @@ async function handler(req, res) {
   ordersSnapshot.forEach((doc) => {
     orders.push(doc.data());
   });
-  console.log("myOrders", orders);
   res.status(200).json(orders);
 }
 export default authMiddleware(handler);

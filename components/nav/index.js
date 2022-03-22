@@ -26,11 +26,9 @@ export default function Nav() {
   const transitionRef = useRef();
 
   const doSignOut = async () => {
-    console.log("IN");
     const res = await signOut(auth);
     router.push("/");
     closeCart();
-    console.log("out=", res);
   };
   return (
     <div className={classes.container}>

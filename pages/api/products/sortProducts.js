@@ -21,7 +21,6 @@ async function handler(req, res) {
   querySnapshot.forEach((doc) => {
     products.push(doc.data());
   });
-  console.log("products=", COLOR, products);
   res.status(200).json({ products: products });
 }
 export default handler;

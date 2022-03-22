@@ -22,7 +22,6 @@ export default function CartList() {
     const res = await signOut(auth);
     router.push("/");
     closeCart();
-    console.log("out=", res);
   };
   const closeCart = () => {
     shoppingRef.current.checked = false;

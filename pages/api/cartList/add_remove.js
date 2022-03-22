@@ -26,7 +26,6 @@ async function handler(req, res) {
 
   let newCartList = await addProductToCart(oldCartList, newProduct, req);
   const totalPrice = calculateTotalPrice(newCartList);
-  console.log(totalPrice);
   if (req.userId) {
     let res = await db.collection("carts").doc(req.userId).set({
       id: req.userId,
@@ -40,20 +39,6 @@ async function handler(req, res) {
     });
   }
   res.status(200).json(newCartList);
-  //   console.log("cart=>", cartList);
-  //   if (req.method === "POST") {
-  //     if (cartList) {
-  //        cartList = await c
-
-  //     } else {
-  //       cartList = JSON.stringify({});
-  //     }
-  //     cookies.set("cartList", cartList, {
-  //       signed: true,
-  //       maxAge: 100 * 24 * 60 * 60 * 1000,
-  //     });
-  //     res.status(200).json(cartList?.split("@"));
-  //   }
 }
 export default authMiddleware(handler);
 const addProductToCart = async (cartList, newProduct, req) => {
@@ -61,24 +46,16 @@ const addProductToCart = async (cartList, newProduct, req) => {
 
   if (cartList[0]) {
     cartList = cartList.map((product) => {
-      console.log(
-        "test============",
-        JSON.stringify(sortObject(product.details)) ===
-          JSON.stringify(sortObject(newProduct.details))
-      );
-      // console.log("test============", product.details, newProduct.details);
       if (
         JSON.stringify(sortObject(product.details)) ===
         JSON.stringify(sortObject(newProduct.details))
       ) {
-        console.log("elmfrood ab2a hna");
         wasThere = true;
         product.quantity += 1;
         product.totalPrice = product.quantity * product.unitPrice;
       }
       return product;
     });
-    // console.log('new')
     if (!wasThere) {
       if (req.userId) {
         const tmp = await toCartList([newProduct]);
@@ -99,7 +76,6 @@ const sortObject = (obj) => {
     .sort()
     .forEach((key) => {
       tmp = { ...tmp, [key]: obj[key] };
-      console.log(key, obj[key]);
     });
   return tmp;
 };

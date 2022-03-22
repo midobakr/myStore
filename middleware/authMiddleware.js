@@ -4,7 +4,6 @@ import { auth, db } from "../firebaseAdminConfig";
 const authMiddleware = (handler) => async (req, res) => {
   try {
     const token = req.headers.authorization;
-    console.log("I am in the middleware");
     if (!token) {
       return handler(req, res);
     }

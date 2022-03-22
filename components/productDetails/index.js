@@ -3,8 +3,6 @@ import AddToCart from "../addToCart";
 import classes from "./productDetails.module.css";
 
 export default function productDetails({ product }) {
-  console.log("my product:\n", product);
-
   return (
     <div className={classes.container}>
       <AddToCart product={product} />

@@ -51,7 +51,6 @@ export default function ShippingAddress({ setShippingAddress }) {
     e.preventDefault();
     let validForm = !Object.values(errors).join("");
     if (validForm) {
-      console.log("submit");
       setShippingAddress(state);
     }
   };

@@ -26,11 +26,7 @@ export default function CartListItems() {
       },
     });
     res = await res.json();
-    console.log("=============", res);
-    console.log("sa7 kda", res.cart);
-    // if (!res[) {
-    //   res.cart = [];
-    // }
+
     let total = calculateTotalPrice(res.cart);
     setSum(total);
     setLikedProducts(res.cart);
@@ -91,7 +87,6 @@ export default function CartListItems() {
       </div>
     );
   }
-  console.log("arf \n", likedProducts);
   return (
     <>
       <div className={classes.details2}>

@@ -25,7 +25,6 @@ export default function WishList() {
     const res = await signOut(auth);
     router.push("/");
     closeCart();
-    console.log("out=", res);
   };
   const getWishlist = async (e) => {
     setLoading(true);
@@ -68,7 +67,6 @@ export default function WishList() {
       </div>
     );
   }
-
   return (
     <div className={classes.group}>
       <input

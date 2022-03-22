@@ -7,13 +7,9 @@ export default function Filter({ setProducts, setLoading }) {
   const [filter, setFilter] = useState("");
   useEffect(() => {
     if (filter) {
-      console.log("filter=>", filter);
-      // setLoading(true);
       fetch("/api/products/sortProducts?" + new URLSearchParams(filter))
         .then((res) => res.json())
         .then((res) => {
-          // setLoading(false);
-          console.log("res.products=", res.products);
           setProducts(res.products);
         });
     }
