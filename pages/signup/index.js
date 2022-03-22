@@ -1,6 +1,7 @@
 import { useState } from "react";
 import validator from "validator";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { auth } from "../../firebaseConfig";
 import { createUserWithEmailAndPassword, updateProfile } from "firebase/auth";
 
@@ -8,6 +9,7 @@ import classes from "./signup.module.css";
 import Form from "../../components/Form/form";
 
 function SignUp(props) {
+  const router = useRouter();
   let [state, setState] = useState({
     username: "",
     email: "",
@@ -135,7 +137,9 @@ function SignUp(props) {
             },
           })
             .then((res) => res.json())
-            .then(console.log);
+            .then((e) => {
+              window.location.pathname = "/";
+            });
         }
       } catch (e) {
         console.log("ee", e);
@@ -216,8 +220,8 @@ function SignUp(props) {
 
       <h4 className={classes.h4}>
         Already have an account?{" "}
-        <Link className={classes.link} href="/login">
-          <a>Log In</a>
+        <Link href="/login">
+          <a className={classes.link}>Log in</a>
         </Link>
       </h4>
     </div>

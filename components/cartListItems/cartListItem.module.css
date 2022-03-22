@@ -11,7 +11,16 @@
   height: 10%;
   justify-content: space-around;
 }
-
+.empty {
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.closes {
+  font-size: 50px;
+}
 @keyframes loading {
   from {
     transform: rotate(0deg);
@@ -62,8 +71,8 @@
   margin-top: 10px;
 }
 .likedProducts {
-  border-top: 2px solid rgb(126, 80, 80);
-  border-bottom: 2px solid rgb(126, 80, 80);
+  /* border-top: 2px solid rgb(126, 80, 80); */
+  /* border-bottom: 2px solid rgb(126, 80, 80); */
   overflow-y: auto;
   height: 70%;
   /* flex-grow: 2; */

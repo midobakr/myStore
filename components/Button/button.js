@@ -1,6 +1,5 @@
 import classes from "./button.module.css";
-// import Spinner from '../spinner/spinner'
-
+import { AiOutlineLoading } from "react-icons/ai";
 function Button({ name, onSubmit, loading, color }) {
   return (
     <button
@@ -9,11 +8,11 @@ function Button({ name, onSubmit, loading, color }) {
       onClick={onSubmit}
     >
       {name}
-      {
+      {loading && (
         <div style={{ position: "absolute", right: "10px", top: "10px" }}>
-          {/* <Spinner show={loading} margin='0px' size='5px'/> */}
+          <AiOutlineLoading className={classes.loading} />
         </div>
-      }
+      )}
     </button>
   );
 }

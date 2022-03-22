@@ -1,9 +1,9 @@
 .container {
   /* margin-top: 110px; */
-  /* height: 100%; */
+  height: 100%;
   /* border: 4px solid red; */
   /* padding: 0 5%; */
-  /* background-color: aqua; */
+  /* background-color: red; */
 }
 
 @media screen and (max-width: 1000px) {

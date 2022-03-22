@@ -1,50 +1,91 @@
 .container {
-  padding: 10px;
+  /* font-size: 140px !important; */
   display: grid;
-  border: 2px solid black;
-  grid-template-columns: repeat(4, minmax(200px, 1fr));
-  column-gap: 10px;
-  row-gap: 5px;
-  /* background-color: ; */
+  gap: 8px;
+  padding: 10px;
+  /* margin-top: 60px; */
+  background-color: black;
+  grid-template-areas:
+    "clothes clothes clothes clothes"
+    "shoes sale sale sale"
+    "shoes bags bags bags";
+  /* grid-template-rows: 1fr min-content;
+  grid-template-columns: 1fr 3fr; */
+  /* border: 10px solid black; */
+  min-height: 100%;
 }
-
-.test {
+@media screen and (min-width: 1000px) {
+  .container {
+    /* display: none; */
+    height: 100%;
+    /* padding: 10px 0; */
+  }
+}
+.container div a {
   width: 100%;
-  height: 400px;
-  /* margin: 5px; */
+  font-size: 40px;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 10px;
+  /* display: none; */
 }
-.test2 {
-  height: 300px;
-  position: relative;
+.container .clothes a {
+  /* display: none; */
+  justify-content: flex-start;
 }
-.image {
-  width: 100%;
+.container .jewlery a {
+  align-items: center;
+  justify-content: flex-end;
+}
+.container div {
+  /* padding: 10px; */
+  background-position: center;
+  background-size: cover;
+  color: wheat;
+  font-family: "Courier New", Courier, monospace;
+  font-size: large;
+  font-weight: bold;
+  /* mix-blend-mode: lighten; */
+  filter: grayscale(100%);
+  /* width: 100%;
+  height: 100%; */
+  /* background-color: aqua; */
+  font-size: 23px;
+}
+.clothes {
+  grid-area: clothes;
+  background-image: url("/header2.jpg");
+  color: #e91e62;
+  padding-left: 10px;
+  justify-content: flex-start !important;
+}
+.bags {
+  /* border: 5px solid white; */
+  grid-area: bags;
+  background-image: url("/bags.jpg");
 }
 .sale {
-  background-color: fuchsia;
-  width: 40%;
-  padding: 5px;
-  position: absolute;
-  bottom: 20px;
-  left: 5px;
+  background-image: url("/header.jpg");
+  grid-area: sale;
 }
-.icon {
-  height: 30px;
-  width: 30px;
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  fill: white;
-  stroke-width: 2px;
+.shoes {
+  color: black !important;
+  background-image: url("/shoes.jpg");
+  grid-area: shoes;
 }
-.info {
-  padding: 5px;
-}
-.price {
-  font-family: Arial, Helvetica, sans-serif;
-
-  font-weight: bold;
-  color: fuchsia;
-  /* padding-left: 10px; */
-  font-size: 1.5em;
+.jewlery {
+  background-image: url("/jewelry2.jpg");
+  /* background-position: 90% !important;
+  background-size: c !important; */
+  /* background-repeat: no-repeat; */
+  /* background-attachment: fixed; */
+  grid-area: jewlery;
+  padding-right: 10px;
+  /* margin: auto; */
+  justify-content: flex-end !important;
+  color: black !important;
+  /* display: block ; */
+  align-items: center !important;
 }

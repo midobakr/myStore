@@ -1,27 +1,35 @@
 .controllers {
-  margin-left: auto;
   display: flex;
   justify-content: space-around;
+  margin-left: auto;
 }
-
+.user {
+  position: relative;
+}
+.user div {
+  position: absolute;
+  left: -15px;
+  width: 130px;
+  font-weight: bold;
+  font-size: 10px;
+  overflow: hidden;
+  font-family: cursive;
+}
 .userIcon {
   width: 30px;
   height: 30px;
+  vertical-align: bottom;
 }
 .icon {
   margin-left: 25px;
   width: 30px;
   height: 30px;
-  /* fill: red; */
-  /* background-color: aqua; */
   stroke-width: 1px;
-  /* color: blue; */
 }
 
-/* => */
-
 @media screen and (max-width: 1000px) {
-  .userIcon {
+  .userIcon,
+  .user {
     display: none;
   }
 }

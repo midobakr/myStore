@@ -1,31 +1,39 @@
 import Cookies from "cookies";
 const keys = ["opscjedcoij", ";oeroerer;"];
-export default async function handler(req, res) {
-  const cookies = new Cookies(req, res, { keys });
-  let whishList = cookies.get("whishList", { signed: true });
-  console.log("whis", whishList);
-  if (req.method === "POST") {
-    if (!whishList) {
-      whishList = "";
-    }
-    if (whishList?.search(req.body.id) >= 0) {
-      whishList = whishList.replace(`${req.body.id}@`, "");
-    } else {
-      whishList += `${req.body.id}@`;
-    }
-    cookies.set("whishList", whishList, {
+import authMiddleware from "../../../middleware/authMiddleware";
+import getLikdProductsFromCookies from "../../../utils/getLikdProductsFromCookies";
+import { db } from "../../../firebaseAdminConfig";
+async function handler(req, res) {
+  if (req.method !== "POST") {
+    res.status(400);
+    return false;
+  }
+  const productId = req.body.id;
+  let whishList = [];
+  if (req.userId) {
+    whishList = await db.collection("whishList").doc(req.userId).get();
+    whishList = (await whishList.data()?.whishList) || [];
+  } else {
+    whishList = getLikdProductsFromCookies(req, res);
+  }
+
+  if (whishList.includes(productId)) {
+    whishList = whishList.filter((item) => item != productId);
+  } else {
+    whishList.push(productId);
+  }
+  console.log(req.userId, "done");
+  if (req.userId) {
+    console.log(whishList);
+    await db.collection("whishList").doc(req.userId).set({ whishList });
+  } else {
+    const cookies = new Cookies(req, res, { keys });
+
+    cookies.set("whishList", JSON.stringify(whishList), {
       signed: true,
       maxAge: 100 * 24 * 60 * 60 * 1000,
     });
-    // let id = await req.body.json();
-    // console.log("if=>", whishList);
-    res.status(200).json(whishList?.split("@"));
   }
-  if (req.method === "GET") {
-    if (!whishList) {
-      res.status(200).json([]);
-    } else {
-      res.status(200).json(whishList?.split("@"));
-    }
-  }
+  res.status(200).json(whishList);
 }
+export default authMiddleware(handler);

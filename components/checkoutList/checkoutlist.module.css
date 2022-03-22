@@ -1,9 +1,9 @@
 .stepsList {
+  background-color: #eee;
+  border-bottom: 2px solid #ddd;
+
   margin: auto;
-  /* border-right: 1px solid red;
-    border-left: 1px solid red; */
   padding: 10px;
-  /* width: 80%; */
   list-style: none;
   box-sizing: border-box;
   display: flex;
@@ -12,6 +12,7 @@
 .stepsListItem,
 .stepsListItemActive {
   display: flex;
+
   padding: 5px 20px;
   flex-direction: column;
   align-items: center;
@@ -27,4 +28,22 @@
 .stepsListItemActive:hover {
   border-bottom: 1px solid #a90a3f;
   cursor: pointer;
+}
+@media screen and (max-width: 1000px) {
+  .stepsList {
+    background-color: #eee;
+    border-bottom: 2px solid #ddd;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5px 0;
+    justify-content: center;
+    gap: 10px;
+  }
+  .stepsListItem,
+  .stepsListItemActive {
+    /* display: none; */
+    padding: 0;
+    width: 45%;
+    /* border: 1px solid green; */
+  }
 }

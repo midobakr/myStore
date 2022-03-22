@@ -3,6 +3,7 @@ import getCartFromCookie from "../../../utils/getCartFromCookie";
 import toCartList from "../../../utils/toCartList";
 import { db } from "../../../firebaseAdminConfig";
 import authMiddleware from "../../../middleware/authMiddleware";
+import calculateTotalPrice from "../../../utils/calculateTotalPrice";
 const keys = ["opscjedcoij", ";oeroerer;"];
 
 async function handler(req, res) {
@@ -27,10 +28,13 @@ async function handler(req, res) {
   }
 
   let newCartList = await addORremove(oldCartList, newProduct);
+  const totalPrice = calculateTotalPrice(newCartList);
+
   if (req.userId) {
     let res = await db.collection("carts").doc(req.userId).set({
       id: req.userId,
       cart: newCartList,
+      totalPrice,
     });
   } else {
     cookies.set("cartList", JSON.stringify(newCartList), {

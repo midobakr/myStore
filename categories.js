@@ -1,5 +1,5 @@
 const categories = {
-  JEWLERY: ["BRACELETS", "EARRINGS", "NECKLACES", "RINGS", "WATCHES"],
+  JEWELRY: ["BRACELETS", "EARRINGS", "NECKLACES", "RINGS", "WATCHES"],
   CLOTHS: [
     "ABAYAS",
     "COATS",

@@ -48,9 +48,6 @@ export default function CheckoutList({ activeSection, setActiveSection }) {
             ? classes.stepsListItemActive
             : classes.stepsListItem
         }
-        onClick={() => {
-          setActiveSection(4);
-        }}
       >
         <span>4</span>
         <span>Order placed</span>

@@ -1,25 +1,26 @@
-.container{
-    height: 100vh;
-  border: 2px solid transparent;
-    background-color: white;
-    color:black
+.container {
+  margin: auto;
+  height: 100vh;
+  width: 40%;
+  /* border: 2px solid #eee; */
+  background-color: white;
+  color: black;
 }
-.link{
-    display: inline;
-    color: blue;
-
+.link:hover {
+  /* display: inline; */
+  color: blue;
+  /* display: none; */
 }
-.h4{
-    text-align: center;
-    margin: auto;
-    margin-top: 0px;
-    width: 40%;
+.h4 {
+  text-align: center;
+  margin: auto;
+  margin-top: 0px;
+  width: 45%;
 }
-@media only screen and (max-width:700px) {
-    .h4{
-        width: 80%;
-        font-size: 12px;
-        margin-top: 40px;
-    }
-    
+@media only screen and (max-width: 700px) {
+  .h4 {
+    width: 80%;
+    font-size: 12px;
+    margin-top: 40px;
+  }
 }

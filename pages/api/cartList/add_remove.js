@@ -17,17 +17,14 @@ async function handler(req, res) {
   };
   const cookies = new Cookies(req, res, { keys });
   let oldCartList = [];
-  console.log("----------------", req.userId);
   if (req.userId) {
     oldCartList = await db.collection("carts").doc(req.userId).get();
     oldCartList = oldCartList.data()?.cart || [];
-    console.log("old", oldCartList);
   } else {
     oldCartList = getCartFromCookie(req, res);
   }
 
   let newCartList = await addProductToCart(oldCartList, newProduct, req);
-  console.log("////////////////");
   const totalPrice = calculateTotalPrice(newCartList);
   console.log(totalPrice);
   if (req.userId) {

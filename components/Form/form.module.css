@@ -1,6 +1,6 @@
 .container {
   /* width: 40%; */
-  border: 1px solid blue;
+  /* border: 1px solid blue; */
   margin: auto;
 }
 .ItemsContainer {
@@ -21,6 +21,7 @@
   /* display: block; */
   /* width: 100%; */
   padding: 10px;
+  padding-right: 30px;
   font-size: 1em;
   margin: auto;
   margin-top: 0.5em;

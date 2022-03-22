@@ -1,13 +1,14 @@
 .container {
   height: 100vh;
+  width: 40%;
+  margin: auto;
   /* margin-top: 70px; */
   box-sizing: border-box;
   font-family: serif;
   background-color: white;
   border: 2px solid transparent;
 }
-.link {
-  display: inline;
+.link:hover {
   color: blue;
 }
 .h4 {

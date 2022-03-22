@@ -15,9 +15,9 @@ export default async function toCartList(cartList) {
     return {
       ...cartItem,
       name: product.name,
-      unitPrice: product.price,
+      unitPrice: product.salePrice,
       totalPrice: product.price * cartItem.quantity,
-      image: product.colors[cartItem.details.color][0],
+      image: product.images[cartItem.details.color][0],
     };
   });
 

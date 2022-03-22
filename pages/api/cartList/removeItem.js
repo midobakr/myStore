@@ -35,7 +35,7 @@ async function handler(req, res) {
       maxAge: 100 * 24 * 60 * 60 * 1000,
     });
   }
-  console.log(newCartList);
+  console.log("newCartList: \n", newCartList);
   res.status(200).json({ cart: newCartList });
 }
 export default authMiddleware(handler);

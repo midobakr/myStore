@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import SuccefullOrder from "../../components/succefullOrder";
 import Button from "../../components/Button/button";
+import Link from "next/link";
 import CheckoutList from "../../components/checkoutList";
 import CartListItems from "../../components/cartListItems";
 import ShippingAddress from "../../components/shippingAddress";
@@ -9,6 +10,7 @@ import classes from "./checkout.module.css";
 // import { auth } from "../../firebaseAdminConfig";
 export default function CheckOut() {
   const [activeSection, setActiveSection] = useState(1);
+  const [error, setError] = useState("");
   const [shippingAddress, setShippingAddress] = useState({});
   const [payment, setPayment] = useState("");
   let content = "";
@@ -23,11 +25,12 @@ export default function CheckOut() {
         condition = true;
         content = (
           <div>
-            <h1>Your Shipping Address :</h1>
+            <h2>Your Shipping Address :</h2>
             <ul className={classes.addresDetails}>
               {Object.keys(shippingAddress).map((key) => (
                 <li key={key}>
-                  {key}:{shippingAddress[key]}
+                  <span className={classes.label}>{key}:</span>
+                  {shippingAddress[key]}
                 </li>
               ))}{" "}
               <Button
@@ -50,7 +53,19 @@ export default function CheckOut() {
       if (payment) {
         condition = true;
       }
-      content = <PaymentMethod setPayment={setPayment} />;
+      content = (
+        <>
+          <PaymentMethod setPayment={setPayment} />
+          {error && (
+            <h1>
+              {error}
+              <Link href="/login">
+                <a style={{ color: "blue", fontSize: "24px" }}> Log in</a>
+              </Link>
+            </h1>
+          )}
+        </>
+      );
       break;
     case 4:
       content = <SuccefullOrder />;
@@ -69,17 +84,21 @@ export default function CheckOut() {
     }
   };
   const submitOrder = async () => {
-    let res = await fetch("/api/orders/setOrder", {
-      method: "POST",
-      credentials: "same-origin",
-      headers: {
-        Authorization: localStorage.getItem("token"),
-      },
-      body: JSON.stringify({ payment, address: shippingAddress }),
-    });
-    res = await res.json();
-    if (res.orderId) {
-      setActiveSection(4);
+    try {
+      let res = await fetch("/api/orders/setOrder", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: {
+          Authorization: localStorage.getItem("token"),
+        },
+        body: JSON.stringify({ payment, address: shippingAddress }),
+      });
+      res = await res.json();
+      if (res.orderId) {
+        setActiveSection(4);
+      }
+    } catch (e) {
+      setError("please sign in first");
     }
   };
   console.log(payment);

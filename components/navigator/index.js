@@ -1,7 +1,10 @@
+import { useRouter } from "next/router";
+
 import allCategories from "../../categories";
 import classes from "./navigator.module.css";
 
 export default function Navigator({ category }) {
+  const router = useRouter();
   const mainCategories = Object.keys(allCategories);
   let activeCategory = mainCategories.includes(category) && category;
   if (!activeCategory) {
@@ -15,7 +18,7 @@ export default function Navigator({ category }) {
     <div className={classes.navigate}>
       <h4>{activeCategory}</h4>
       <ul className={classes.navigateList}>
-        {allCategories[activeCategory].map((item) => (
+        {allCategories[activeCategory]?.map((item) => (
           <li
             key={item}
             style={{ color: item == category ? "red" : "" }}

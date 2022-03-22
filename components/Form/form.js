@@ -13,7 +13,9 @@ function Form({ title, items, onSubmit, id, loading, buttonName }) {
           {items.map((item, index) => {
             return (
               <div key={index} className={classes.formgroup}>
-                <label htmlFor={item.name}>{item.name}:</label>
+                <label htmlFor={item.name} className={classes.label}>
+                  {item.name}:
+                </label>
                 <input
                   disabled={item.asAdmin}
                   value={item.value}

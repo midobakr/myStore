@@ -16,14 +16,9 @@
   padding: 10px 0px 10px 10px;
   cursor: pointer;
 }
-.categories_list li:hover {
-  border-bottom: 1px solid black;
-}
 .categories_list li:first-of-type {
   padding: 5px;
   font-size: 1.5em;
-  /* => */
-  /* font-size: 1em; */
 }
 .icon {
   height: 100%;
@@ -33,10 +28,6 @@
   align-items: center;
   background-color: black;
   margin-right: 10px;
-  /* height: 50px;
-  width: 50px;
-  margin: 0 10px;
-  cursor: pointer; */
 }
 .icon svg {
   fill: white;
@@ -51,16 +42,13 @@
 @media screen and (max-width: 1000px) {
   .categories {
     width: 100%;
-    /* border: 2px solid rebeccapurple; */
-    /* position: fixed;
-    top: 90px; */
-    height: 100%;
     left: -1500px;
   }
 
   .categories_list {
     flex-direction: column;
     padding: 5px;
+    height: auto;
   }
   .categories_list li {
     color: white;
@@ -70,6 +58,7 @@
     font-size: 1.5em;
     height: 50px;
     display: flex;
+    flex-direction: row;
     align-items: center;
   }
   .categories_list li .icon {

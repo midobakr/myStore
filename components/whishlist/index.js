@@ -1,24 +1,39 @@
-import { useState, useEffect } from "react";
+import { useState, useContext, useRef } from "react";
+import myStoreContext from "../../store/storeContext";
 import Image from "next/image";
 import classes from "./wishlist.module.css";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { MdLogout } from "react-icons/md";
+import { signOut } from "firebase/auth";
+import { auth } from "../../firebaseConfig";
+
 import {
   AiOutlineHeart,
+  AiFillHeart,
   AiOutlineClose,
   AiOutlineLoading,
 } from "react-icons/ai";
-// import Cookies from "js-cookie";
-import cookies from "js-cookie";
 
-export default function wishList() {
+export default function WishList() {
   const [likedProducts, setLikedProducts] = useState([]);
   const [loading, setLoading] = useState(false);
-
+  const { whishList, user } = useContext(myStoreContext);
+  const shoppingRef = useRef();
+  const router = useRouter();
+  const doSignOut = async () => {
+    const res = await signOut(auth);
+    router.push("/");
+    closeCart();
+    console.log("out=", res);
+  };
   const getWishlist = async (e) => {
     setLoading(true);
     let res = await fetch("/api/whishList/getWhishlist", {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
+        Authorization: localStorage.getItem("token"),
       },
 
       credentials: "same-origin",
@@ -27,10 +42,37 @@ export default function wishList() {
     setLikedProducts(res);
     setLoading(false);
   };
+  const closeCart = () => {
+    shoppingRef.current.checked = false;
+  };
+  let loginORlogout = "";
+  if (user) {
+    loginORlogout = (
+      <div>
+        <MdLogout className={classes.icon4} onClick={doSignOut} />
+      </div>
+    );
+  } else {
+    loginORlogout = (
+      <div className={classes.login}>
+        <span>
+          <Link href="/signup">
+            <a onClick={closeCart}>SIGN UP</a>
+          </Link>
+        </span>
+        <span>
+          <Link href="/login">
+            <a onClick={closeCart}>LOG IN</a>
+          </Link>
+        </span>
+      </div>
+    );
+  }
 
   return (
     <div className={classes.group}>
       <input
+        ref={shoppingRef}
         className={classes.wishListMark}
         type="checkbox"
         id="wishList"
@@ -40,12 +82,8 @@ export default function wishList() {
           <label htmlFor="wishList">
             <AiOutlineClose className={classes.closeIcon} />
           </label>
-          <div className={classes.login}>
-            <span>SIGN UP</span>
-            <span>LOG IN</span>
-          </div>
+          {loginORlogout}
           <div className={classes.options}>
-            {/* <span>SHOPPING BAG</span> */}
             <span>WISHLIST</span>
           </div>
         </div>
@@ -54,12 +92,12 @@ export default function wishList() {
             <div className={classes.loadingContainer}>
               <AiOutlineLoading className={classes.loading} />
             </div>
-          ) : (
+          ) : likedProducts[0] ? (
             likedProducts.map((product, key) => (
               <div key={key} className={classes.product}>
                 <Image
                   className={classes.image}
-                  src={product.colors[Object.keys(product.colors)[0]][0]}
+                  src={product.images[product.colors[0]][0]}
                   alt="Vercel Logo"
                   width={100}
                   height={150}
@@ -71,11 +109,22 @@ export default function wishList() {
                 </div>
               </div>
             ))
+          ) : (
+            <div className={classes.empty}>
+              <div className={classes.closes}>
+                <AiOutlineClose />
+              </div>
+              <h2>Nothing is here</h2>
+            </div>
           )}
         </div>
       </div>
       <label onClick={getWishlist} htmlFor="wishList">
-        <AiOutlineHeart className={classes.icon} />
+        {whishList.length ? (
+          <AiFillHeart className={classes.icon2} />
+        ) : (
+          <AiOutlineHeart className={classes.icon} />
+        )}
       </label>
     </div>
   );

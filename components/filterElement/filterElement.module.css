@@ -1,39 +1,25 @@
-.checkbox {
-  visibility: hidden;
-  position: absolute;
-}
-.checkbox:checked + label + .options {
-  opacity: 1;
+.optionsActive {
+  font-family: cursive;
+  transition: max-height 0.5s ease-in-out;
   z-index: 111;
-}
-.checkbox:checked + label .group {
-  border-top: 1px solid black;
-  transform: translateY(10px);
-}
-.options {
-  position: absolute;
-  top: 40px;
-  left: 0;
-  border: 1px solid #eee;
-  min-width: 150px;
-  z-index: -111;
-  opacity: 0;
   background-color: white;
-  min-height: 110px;
-  transition: all 0.2s linear;
+  max-height: 400px;
+  background-color: #ccc;
+  width: 100%;
+  left: 0;
+  top: 40px;
+  position: absolute;
+  overflow: hidden;
 }
 
-.group {
-  display: flex;
-  justify-content: space-between;
-  transition: all 0.2s linear;
-}
 .list_item {
-  border-top: 1px solid transparent;
-  border-bottom: 1px solid #eee;
-  padding: 15px;
-  width: 145px;
+  flex-grow: 1;
   position: relative;
+  border-top: 1px solid transparent;
+  cursor: pointer;
+  /* width: 50%; */
+  border-bottom: 1px solid #ccc;
+  /* border: 1px solid red; */
 }
 .list_item span {
   line-height: 20px;
@@ -41,6 +27,38 @@
 .icon {
   width: 20px;
   height: 20px;
+}
+.name {
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.options {
+  position: absolute;
+  width: 100%;
+  max-height: 0;
+  /* background-color: white; */
+  border: 1px solid #ccc;
+  z-index: 111;
+  top: 40px;
+  overflow: hidden;
+}
+.item {
+  text-align: center;
+  font-size: 16px;
+  padding: 5px;
+  border-bottom: 1px solid #aaa;
+}
+.item:hover {
+  background-color: gray;
+}
+.filterName {
+  /* border: 1px solid red; */
+  /* height: 10px; */
+  text-align: center;
+  background-color: #ccc;
+  width: 100px;
 }
 @media screen and (max-width: 750px) {
   .list_item {

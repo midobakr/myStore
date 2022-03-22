@@ -1,51 +1,42 @@
-import { useRef } from "react";
+import { useRef, useState } from "react";
+import { useRouter } from "next/router";
+
 import classes from "./searchBar.module.css";
 import { MdClose } from "react-icons/md";
 import { AiOutlineSearch } from "react-icons/ai";
 export default function SearchBar() {
-  const searchBarRef = useRef();
-
-  function activeSearch() {
-    document.querySelector("#closeIcon").style.display = "block";
-    searchBarRef.current.classList.add(classes.search_bar_active);
+  const [value, setValue] = useState("");
+  const inputRef = useRef();
+  const router = useRouter();
+  function search(e) {
+    e.preventDefault();
+    inputRef.current.classList.toggle(classes.search_field_active);
+    if (value) {
+      router.push("/search?keywords=" + value);
+      setValue("");
+    }
   }
 
-  function closeSearch() {
-    document.querySelector("#closeIcon").style.display = "none";
-
-    searchBarRef.current.classList.remove(classes.search_bar_active);
+  function activeMobSearch() {
+    router.push("/search?keywords=" + value);
   }
+  const saveInput = (e) => {
+    setValue(e.target.value);
+  };
 
   return (
-    <div ref={searchBarRef} className={classes.search_bar}>
+    <form onSubmit={search} className={classes.search_bar}>
       <input
-        onFocus={activeSearch}
-        type="search"
+        ref={inputRef}
+        type="text"
         placeholder="Search categories or products"
         className={classes.search_field}
+        value={value}
+        onChange={saveInput}
       ></input>
-      <MdClose
-        id="closeIcon"
-        className={classes.closeIcon}
-        onClick={closeSearch}
-      />
-      <AiOutlineSearch className={classes.search_icon} />
-      {/* <span className={classes.search_icon}>
-        <svg
-          className={classes.icon}
-          style={{ margin: 0 }}
-          fill="none"
-          viewBox="0 0 24 24"
-          // stroke="white"
-        >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth={1}
-            d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-          />
-        </svg>
-      </span> */}
-    </div>
+      <div onClick={search}>
+        <AiOutlineSearch className={classes.search_icon} />
+      </div>
+    </form>
   );
 }

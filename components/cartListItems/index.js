@@ -82,8 +82,16 @@ export default function CartListItems() {
     );
   }
   if (!likedProducts[0] && !loading) {
-    return <h1>Nothing in your cart</h1>;
+    return (
+      <div className={classes.empty}>
+        <div className={classes.closes}>
+          <AiOutlineClose />
+        </div>
+        <h2>Nothing is here</h2>
+      </div>
+    );
   }
+  console.log("arf \n", likedProducts);
   return (
     <>
       <div className={classes.details2}>
@@ -103,7 +111,7 @@ export default function CartListItems() {
             </div>
             <div className={classes.image}>
               <Image
-                src={product.image}
+                src={product.image || "http://localhost:3000/"}
                 alt="Vercel Logo"
                 // width={130}
                 // height={130}

@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { useState } from "react";
 import Link from "next/link";
 import validator from "validator";
@@ -11,7 +13,7 @@ function Login() {
   let [state, setState] = useState({ email: "", password: "" });
   let [errors, setErrors] = useState({});
   let [loading, setLoading] = useState(false);
-
+  const router = useRouter();
   //   const Firebase = useSelector(store=>store.firebase)
 
   let validate = (type, value) => {
@@ -65,20 +67,9 @@ function Login() {
         const token = result.user.accessToken;
         console.log(token);
         localStorage.setItem("token", token);
-        // let res = await fetch("/api/auth/login", {
-        //   method: "POST",
-        //   headers: {
-        //     "Content-Type": "application/json",
-        //     Authorization: token + "d",
-        //   },
-        //   body: JSON.stringify({
-        //     email: state.email,
-        //     password: state.password,
-        //   }),
-        //   //   Firebase.doSignInWithEmailAndPassword(state.email , state.password)
-        // });
-        // res = await res.json();
-        // console.log(res);
+        if (token) {
+          router.push("/myOrders");
+        }
       } catch (error) {
         console.log("error \n", error);
         if (error.message.match("user")) {
@@ -88,27 +79,11 @@ function Login() {
         }
       }
       setLoading(false);
-
-      // .catch((e) => {
-      //   if (e.message.match("user")) {
-      //     setErrors({ email: "this email is not registered" });
-      //   } else if (e.message.match("password")) {
-      //     setErrors({ password: "wrong password" });
-      //   }
-      // });
     }
   };
 
   return (
     <div className={classes.container}>
-      {/* <h4 className={classes.h4}>
-        You can{" "}
-        <Link className={classes.link} to="/guest">
-          Enter As A guest{" "}
-        </Link>
-      </h4>
-       */}
-
       <Form
         loading={loading}
         title="Log In"
@@ -137,8 +112,8 @@ function Login() {
       <h4 className={classes.note}>Forget Password?</h4>
       <h4 className={classes.h4}>
         Don’t have an account?{" "}
-        <Link className={classes.link} href="/signup">
-          <a> Create an Account</a>
+        <Link href="/signup">
+          <a className={classes.link}> Create an Account</a>
         </Link>
       </h4>
     </div>

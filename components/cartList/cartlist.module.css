@@ -19,13 +19,26 @@
   opacity: 1;
   /* background-color: red; */
 }
-.icon {
-  margin-left: 25px;
-  width: 30px;
+.label {
+  margin-right: 5px;
+  color: "green";
+  display: "flex";
+  flex-direction: column;
+  position: "relative";
+  /* border: 1px solid gold; */
   height: 30px;
+}
+.num {
+  color: red;
+}
+.icon {
+  /* color: green; */
+  margin: 0;
+  cursor: pointer;
+  /* display:none; */
   /* fill: red; */
   /* background-color: aqua; */
-  stroke-width: 1px;
+  /* stroke-width: 1px; */
   /* color: blue; */
 }
 .cartList {

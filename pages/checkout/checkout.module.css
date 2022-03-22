@@ -1,5 +1,5 @@
 .mainContainer {
-  border: 1px solid black;
+  border: 5px solid #eee;
   width: 65%;
   padding: 10px;
   margin: auto;
@@ -52,4 +52,28 @@
   /* border: 1px solid green; */
   text-align: left;
   margin-right: auto;
+}
+@media screen and (max-width: 800px) {
+  .mainContainer {
+    border: 0px solid black;
+    width: 100%;
+    margin: 30px;
+    margin-left: auto;
+    /* background-color: blue; */
+    padding: 0px;
+    font-size: 16px;
+  }
+  .addresDetails {
+    list-style: none;
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    justify-content: flex-start;
+    /* padding-bottom: 20px; */
+  }
+}
+.label {
+  color: #a90a3f;
 }
