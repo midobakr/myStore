@@ -114,13 +114,6 @@
   }
 }
 
-.checkout {
-  height: 15%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* flex-grow: 2; */
-}
 .checkout h1:hover {
   cursor: pointer;
   color: #e91e62;

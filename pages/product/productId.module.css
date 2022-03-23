@@ -13,11 +13,6 @@
   display: flex;
   /* justify-content: space-between; */
 }
-@media screen and (max-width: 800px) {
-  .container2 {
-    flex-direction: column;
-  }
-}
 
 .relativeContainer {
   /* border: 2px solid black; */
@@ -99,4 +94,24 @@
   height: 10px;
   width: 10px;
   border-radius: 50%;
+}
+@media screen and (max-width: 800px) {
+  .container2 {
+    flex-direction: column;
+    margin: 0;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .right,
+  .left {
+    background-color: transparent;
+    align-items: flex-end;
+  }
+  .right {
+    right: 80px;
+  }
+  .left {
+    left: 80px;
+  }
 }

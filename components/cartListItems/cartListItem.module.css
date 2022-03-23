@@ -29,6 +29,19 @@
     transform: rotate(360deg);
   }
 }
+.checkout {
+  height: 15%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  background-color: #a90a3f;
+  opacity: 0.9;
+  /* flex-grow: 2; */
+}
+.checkout:hover {
+  opacity: 1;
+}
 .name {
   color: #a90a3f;
 }

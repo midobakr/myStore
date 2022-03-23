@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 import calculateTotalPrice from "../../utils/calculateTotalPrice";
 import {
   AiOutlineClose,
@@ -9,7 +10,7 @@ import {
 } from "react-icons/ai";
 import classes from "./cartListItem.module.css";
 
-export default function CartListItems() {
+export default function CartListItems({ closeCart }) {
   const [likedProducts, setLikedProducts] = useState([]);
   const [loading, setloading] = useState(false);
   const [sum, setSum] = useState(0);
@@ -164,6 +165,13 @@ export default function CartListItems() {
             </div>
           </div>
         ))}
+      </div>
+      <div className={classes.checkout}>
+        <Link href="/checkout">
+          <a className={classes.link} onClick={closeCart}>
+            Check Out
+          </a>
+        </Link>
       </div>
     </>
   );

@@ -30,14 +30,7 @@ export default function CartList() {
   if (active) {
     content = (
       <div className={classes.container}>
-        <CartListItems />
-        <div className={classes.checkout}>
-          <Link href="/checkout">
-            <a className={classes.link} onClick={closeCart}>
-              Check Out
-            </a>
-          </Link>
-        </div>
+        <CartListItems closeCart={closeCart} />
       </div>
     );
   }

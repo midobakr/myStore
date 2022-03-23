@@ -85,9 +85,7 @@ export default function Gallery({ category, search }) {
         <h2>Nothing is here</h2>
       </div>
     );
-  }
-
-  if (products[0]) {
+  } else if (products[0]) {
     content = (
       <div className={classes.container}>
         {products.map((product, i) => (

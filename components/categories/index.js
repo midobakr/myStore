@@ -4,7 +4,7 @@ import { BsPercent } from "react-icons/bs";
 import { AiOutlineFire } from "react-icons/ai";
 import { GiClothes, GiBallerinaShoes } from "react-icons/gi";
 import { IoBag } from "react-icons/io5";
-export default function Categories({ closeCart }) {
+export default function Categories({ closeCart, category }) {
   return (
     <div className={classes.categories}>
       <ul className={classes.categories_list}>
@@ -13,7 +13,12 @@ export default function Categories({ closeCart }) {
             <BsPercent />
           </span>
           <Link href="/sale">
-            <a onClick={closeCart}>SALE</a>
+            <a
+              style={"sale" === category ? { color: "#a90a3f" } : {}}
+              onClick={closeCart}
+            >
+              SALE
+            </a>
           </Link>
         </li>
         <li>
@@ -21,7 +26,12 @@ export default function Categories({ closeCart }) {
             <AiOutlineFire />
           </span>
           <Link href="/new">
-            <a onClick={closeCart}>NEW</a>
+            <a
+              style={"new" === category ? { color: "#a90a3f" } : {}}
+              onClick={closeCart}
+            >
+              NEW
+            </a>
           </Link>
         </li>
         <li>
@@ -29,7 +39,12 @@ export default function Categories({ closeCart }) {
             <GiClothes />
           </span>
           <Link href="/clothes">
-            <a onClick={closeCart}>CLOTHING</a>
+            <a
+              style={"clothes" === category ? { color: "#a90a3f" } : {}}
+              onClick={closeCart}
+            >
+              CLOTHES
+            </a>
           </Link>
         </li>
         <li>
@@ -37,7 +52,12 @@ export default function Categories({ closeCart }) {
             <GiBallerinaShoes />
           </span>
           <Link href="/shoes">
-            <a onClick={closeCart}>SHOES</a>
+            <a
+              style={"shoes" === category ? { color: "#a90a3f" } : {}}
+              onClick={closeCart}
+            >
+              SHOES
+            </a>
           </Link>
         </li>
         <li>
@@ -45,7 +65,12 @@ export default function Categories({ closeCart }) {
             <IoBag />
           </span>
           <Link href="/bag">
-            <a onClick={closeCart}>BAGS</a>
+            <a
+              style={"bag" === category ? { color: "#a90a3f" } : {}}
+              onClick={closeCart}
+            >
+              BAGS
+            </a>
           </Link>
         </li>
       </ul>

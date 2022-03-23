@@ -20,6 +20,7 @@ export default function Nav() {
   const [activeMobNav, setActiveMobNav] = useState(false);
   const { user } = useContext(myStoreContext);
   const router = useRouter();
+  const { category } = router.query;
   const closeCart = () => {
     setActiveMobNav(false);
   };
@@ -87,7 +88,7 @@ export default function Nav() {
                 )}
               </div>
             </div>
-            <Categories closeCart={closeCart} />
+            <Categories closeCart={closeCart} category={category} />
             {user ? (
               <MdLogout className={classes.icon} onClick={doSignOut} />
             ) : (
