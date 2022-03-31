@@ -15,15 +15,12 @@ export default function ProductImage({ colors, images }) {
   }
   return (
     <div className={classes.container}>
-      <Image
+      <img
         className={classes.image}
         src={activeLink}
         alt="Vercel Logo"
-        width={235}
-        height={350}
-        layout="responsive"
-        placeholder="blur"
-        blurDataURL={activeLink}
+        // width={235}
+        // height={350}
       />
       <div className={classes.sambles}>
         {colors.length > 1 &&
@@ -35,12 +32,12 @@ export default function ProductImage({ colors, images }) {
               className={classes.samble}
               key={i}
             >
-              <Image
+              <img
                 src={images[color][0]}
                 alt="Vercel Logo"
-                width={150}
-                height={150}
-                layout="responsive"
+                width={50}
+                // height={150}
+                // layout="responsive"
               />
             </div>
           ))}

@@ -3,6 +3,7 @@ import { db } from "../../../firebaseAdminConfig";
 async function handler(req, res) {
   const { PRICE, COLOR } = req.query;
   let productsRef = await db.collection("products");
+  console.log("price=", PRICE);
   if (PRICE) {
     switch (PRICE) {
       case "Most Expensive":

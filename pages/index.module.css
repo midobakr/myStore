@@ -1,24 +1,17 @@
 .container {
-  /* font-size: 140px !important; */
   display: grid;
   gap: 8px;
   padding: 10px;
-  /* margin-top: 60px; */
   background-color: black;
   grid-template-areas:
     "clothes clothes clothes clothes"
     "shoes sale sale sale"
     "shoes bags bags bags";
-  /* grid-template-rows: 1fr min-content;
-  grid-template-columns: 1fr 3fr; */
-  /* border: 10px solid black; */
   min-height: 100%;
 }
 @media screen and (min-width: 1000px) {
   .container {
-    /* display: none; */
     height: 100%;
-    /* padding: 10px 0; */
   }
 }
 .container div a {
@@ -53,6 +46,9 @@
   height: 100%; */
   /* background-color: aqua; */
   font-size: 23px;
+}
+.container div:hover {
+  filter: grayscale(0%);
 }
 .clothes {
   grid-area: clothes;

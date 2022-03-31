@@ -1,5 +1,4 @@
 .container {
-  /* margin-top: 30px; */
   overflow-x: hidden;
 }
 .name {
@@ -11,11 +10,9 @@
   width: 90%;
   margin: auto;
   display: flex;
-  /* justify-content: space-between; */
 }
 
 .relativeContainer {
-  /* border: 2px solid black; */
   position: relative;
   width: 400px;
   margin: auto;
@@ -24,31 +21,21 @@
   display: none;
 }
 .imageContainer {
-  /* height: 199px; */
   width: 400px;
   min-height: 550px;
-  /* display: flex; */
-  overflow-x: scroll;
+  overflow-x: hidden;
   display: flex;
   min-width: 400px;
-  /* background-color: blue; */
 }
 .Image {
-  /* z-index: -1; */
-  /* width: 200px; */
   flex-shrink: 0;
-  overflow-x: auto;
-  /* background-color: gold; */
-  /* float: left; */
-  /* display: none; */
+  overflow-x: hidden;
 }
 .detailsContainer {
   background-color: aqua;
   z-index: 1;
   height: 100px;
   width: 100px;
-  /* height: 100px; */
-  /* border: 1px solid firebrick; */
 }
 .left:hover,
 .right:hover {
@@ -68,12 +55,9 @@
   align-items: center;
   font-size: 30px;
   color: brown;
-  /* fill: brown; */
 }
 .right {
   right: 0;
-
-  /* position: ; */
 }
 .navihators {
   position: absolute;
@@ -84,11 +68,9 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background-color: red; */
 }
 .circle {
   border: 2px solid black;
-  /* opacity: 0.8; */
   background-color: rgba(0, 0, 0, 0.4);
   margin: 0 5px;
   height: 10px;
@@ -97,6 +79,7 @@
 }
 @media screen and (max-width: 800px) {
   .container2 {
+    width: 100%;
     flex-direction: column;
     margin: 0;
   }

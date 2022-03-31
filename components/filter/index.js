@@ -1,3 +1,5 @@
+import { useRouter } from "next/router";
+
 import { useState, useEffect } from "react";
 import classes from "./filter.module.css";
 import FilterElement from "../filterElement";
@@ -5,6 +7,11 @@ import FilterElement from "../filterElement";
 export default function Filter({ setProducts, setLoading }) {
   const [active, setActive] = useState("");
   const [filter, setFilter] = useState("");
+  const { category } = useRouter().query;
+  useEffect(() => {
+    setActive("");
+    setFilter("");
+  }, [category]);
   useEffect(() => {
     if (filter) {
       fetch("/api/products/sortProducts?" + new URLSearchParams(filter))

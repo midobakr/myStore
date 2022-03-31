@@ -72,7 +72,7 @@ export default function Product({ product }) {
           <div className={classes.imageContainer} ref={sliderRef}>
             {images.map((img, i) => (
               <div key={i} className={classes.Image}>
-                <Image
+                <img
                   src={img}
                   alt="Vercel Logo"
                   width={400}

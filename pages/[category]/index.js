@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import { useRouter } from "next/router";
 import Gallery from "../../components/gallery";
 import Navigator from "../../components/navigator";

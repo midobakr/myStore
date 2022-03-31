@@ -62,13 +62,15 @@ export default function Gallery({ category, search }) {
   }, [setWhishList]);
 
   useEffect(() => {
-    (async () => {
-      setLoading(true);
-      await getProducts();
-      await getLikedProducts();
-      setLoading(false);
-    })();
-  }, [getLikedProducts, getProducts]);
+    if (category) {
+      (async () => {
+        setLoading(true);
+        await getProducts();
+        await getLikedProducts();
+        setLoading(false);
+      })();
+    }
+  }, [getLikedProducts, getProducts, category]);
   let content = "";
   if (loading) {
     content = (
