@@ -10,7 +10,7 @@ import {
 } from "react-icons/ai";
 import classes from "./cartListItem.module.css";
 
-export default function CartListItems({ closeCart }) {
+export default function CartListItems({ closeCart, user, show }) {
   const [likedProducts, setLikedProducts] = useState([]);
   const [loading, setloading] = useState(false);
   const [sum, setSum] = useState(0);
@@ -166,13 +166,15 @@ export default function CartListItems({ closeCart }) {
           </div>
         ))}
       </div>
-      <div className={classes.checkout}>
-        <Link href="/checkout">
-          <a className={classes.link} onClick={closeCart}>
-            Check Out
-          </a>
-        </Link>
-      </div>
+      {show && (
+        <div className={classes.checkout}>
+          <Link href={user ? "/checkout" : "/login"}>
+            <a className={classes.link} onClick={closeCart}>
+              Check Out
+            </a>
+          </Link>
+        </div>
+      )}
     </>
   );
 }

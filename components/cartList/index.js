@@ -30,7 +30,7 @@ export default function CartList() {
   if (active) {
     content = (
       <div className={classes.container}>
-        <CartListItems closeCart={closeCart} />
+        <CartListItems closeCart={closeCart} user={user} show />
       </div>
     );
   }
