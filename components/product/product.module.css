@@ -63,6 +63,7 @@
 .test:hover .addtocart {
   display: block;
 }
+
 .iconContainer:hover .icon {
   fill: #e91e62;
 }
@@ -96,5 +97,8 @@
 @media screen and (max-width: 750px) {
   .sale {
     width: 50%;
+  }
+  .test:hover .addtocart {
+    display: none;
   }
 }

@@ -20,8 +20,8 @@ export default function CartList() {
   const router = useRouter();
   const doSignOut = async () => {
     const res = await signOut(auth);
-    router.push("/");
     closeCart();
+    window.location.pathname = "/";
   };
   const closeCart = () => {
     shoppingRef.current.checked = false;
